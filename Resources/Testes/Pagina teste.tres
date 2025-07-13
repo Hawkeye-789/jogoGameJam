@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Page" load_steps=2 format=3 uid="uid://dl3hlyrskfxvf"]
+
+[ext_resource type="Script" uid="uid://wobuvj4wj4nl" path="res://Scripts/Resources/page.gd" id="1_o50bu"]
+
+[resource]
+script = ExtResource("1_o50bu")
+text = "I... I really really miss my mother...."
+letter_display_multiplier = 2.0
+metadata/_custom_type_script = "uid://wobuvj4wj4nl"
