@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dqad2s24s65bg"]
+
+[ext_resource type="FontFile" uid="uid://bh0flg4k5dv7o" path="res://Assets/Fonts/Pixelated Elegance.ttf" id="1_i2d33"]
+
+[resource]
+Button/font_sizes/font_size = 9
+Button/fonts/font = ExtResource("1_i2d33")

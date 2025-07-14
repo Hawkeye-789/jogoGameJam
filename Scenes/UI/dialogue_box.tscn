@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtlg5cygfwrkf"]
+
+[ext_resource type="Texture2D" uid="uid://bcsnbt1g3576d" path="res://Assets/UI/Dialog Box.aseprite" id="1_4wdl5"]
+[ext_resource type="FontFile" uid="uid://bh0flg4k5dv7o" path="res://Assets/Fonts/Pixelated Elegance.ttf" id="1_e22q5"]
+[ext_resource type="Script" uid="uid://dywx6bgluyrxv" path="res://Scripts/UI/dialog_box.gd" id="1_j168h"]
+[ext_resource type="Theme" uid="uid://dqad2s24s65bg" path="res://Themes/OptionButton.tres" id="4_r3ngk"]
+[ext_resource type="PackedScene" uid="uid://d255serx0p722" path="res://Scenes/UI/skip_arrow.tscn" id="5_8610a"]
+
+[node name="DialogueBox" type="Control" node_paths=PackedStringArray("display_timer", "safeguard_timer", "text_label", "options_buttons", "skip_arrow")]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j168h")
+display_timer = NodePath("TypingDisplayTimer")
+safeguard_timer = NodePath("OptionSafeguardTimer")
+text_label = NodePath("Container/TextContainer/TextLabel")
+options_buttons = [NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton"), NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton2"), NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton3"), NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton4")]
+skip_arrow = NodePath("Container/TextContainer/Vbox/SkipArrowContainer/Skip Arrow")
+
+[node name="Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 210
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 10
+
+[node name="Box" type="NinePatchRect" parent="Container"]
+layout_mode = 2
+texture = ExtResource("1_4wdl5")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="TextContainer" type="MarginContainer" parent="Container"]
+custom_minimum_size = Vector2(480, 130)
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 10
+
+[node name="TextLabel" type="Label" parent="Container/TextContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_e22q5")
+theme_override_font_sizes/font_size = 9
+autowrap_mode = 2
+
+[node name="Vbox" type="VBoxContainer" parent="Container/TextContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/TextContainer/Vbox"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_bottom = 5
+
+[node name="OptionsContainer" type="GridContainer" parent="Container/TextContainer/Vbox/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+columns = 3
+
+[node name="OptionButton" type="Button" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
+visible = false
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme = ExtResource("4_r3ngk")
+alignment = 0
+
+[node name="HSeparator" type="Control" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="OptionButton2" type="Button" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
+visible = false
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme = ExtResource("4_r3ngk")
+alignment = 0
+
+[node name="VSeparator" type="Control" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="VSeparator2" type="Control" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="VSeparator3" type="Control" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="OptionButton3" type="Button" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
+visible = false
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme = ExtResource("4_r3ngk")
+alignment = 0
+
+[node name="HSeparator2" type="Control" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="OptionButton4" type="Button" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
+visible = false
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme = ExtResource("4_r3ngk")
+alignment = 0
+
+[node name="SkipArrowContainer" type="MarginContainer" parent="Container/TextContainer/Vbox"]
+custom_minimum_size = Vector2(7, 5)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Skip Arrow" parent="Container/TextContainer/Vbox/SkipArrowContainer" instance=ExtResource("5_8610a")]
+visible = false
+
+[node name="TypingDisplayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="OptionSafeguardTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="TypingDisplayTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="OptionSafeguardTimer" to="." method="_on_safeguard_timer_timeout"]

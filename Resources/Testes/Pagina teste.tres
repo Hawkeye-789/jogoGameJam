@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_o50bu")
-text = "I... I really really miss my mother...."
-letter_display_multiplier = 2.0
+text = "Você acha que o Daniel eh gay?"
+letter_display_multiplier = 0.5
+options = Array[String]([])
 metadata/_custom_type_script = "uid://wobuvj4wj4nl"

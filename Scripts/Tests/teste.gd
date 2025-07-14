@@ -1,10 +1,11 @@
 extends Node2D
 
 @export var dialogue_box : DialogueBox
-@export var dialogue_box2 : DialogueBox
-@export var pagina : Page
-@export var pagina2 : Page
+@export var dialogo : Dialogue
 
 func _ready() -> void:
-	dialogue_box.set_text(pagina)
-	dialogue_box2.set_text(pagina2)
+	dialogue_box.option_chosen.connect(print_option)
+	dialogue_box.set_dialogue(dialogo)
+
+func print_option(option_number : int) -> void:
+	print(option_number)
