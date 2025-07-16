@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b06ysek4n478r"]
 
-[ext_resource type="Theme" uid="uid://bnuu6d3sqfh81" path="res://Themes/menu_theme.tres" id="1_w7o47"]
+[ext_resource type="Theme" uid="uid://bnuu6d3sqfh81" path="res://Themes/MainMenu.tres" id="1_w7o47"]
 [ext_resource type="Texture2D" uid="uid://vx47al7ub8ku" path="res://Assets/UI/MenuBackground.aseprite" id="1_yub6e"]
-[ext_resource type="Script" uid="uid://c7y1vxli25kbx" path="res://Scripts/tabs_container.gd" id="3_2pm4r"]
-[ext_resource type="PackedScene" uid="uid://c1g5ikb0wkl" path="res://Scenes/UI/inventory.tscn" id="4_2pm4r"]
+[ext_resource type="Script" uid="uid://c7y1vxli25kbx" path="res://Scripts/UI/tabs_container.gd" id="3_2pm4r"]
+[ext_resource type="PackedScene" uid="uid://bvjo6dasqqi8j" path="res://Scenes/UI/inventory_container.tscn" id="4_2pm4r"]
 
 [node name="MenuScreen" type="Control"]
 layout_mode = 3
@@ -172,7 +172,31 @@ layout_mode = 2
 text = "Quit"
 alignment = 0
 
-[node name="InventoryContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_2pm4r")]
+[node name="MainContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TexturePanel" type="NinePatchRect" parent="MarginContainer/VBoxContainer/HBoxContainer/MainContainer"]
+layout_mode = 2
+texture = ExtResource("1_yub6e")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="InventoryContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MainContainer/TexturePanel" instance=ExtResource("4_2pm4r")]
+layout_mode = 1
+
+[node name="SettingsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MainContainer/TexturePanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MainContainer/TexturePanel/SettingsContainer"]
 layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/InvButton" to="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer" method="_on_inv_button_pressed"]

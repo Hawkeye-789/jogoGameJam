@@ -1,32 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0mnpq881jgs4"]
+[gd_scene load_steps=5 format=3 uid="uid://c0mnpq881jgs4"]
 
-[ext_resource type="Texture2D" uid="uid://drd3q0hfuiuy2" path="res://Assets/UI/ButtonFocus.aseprite" id="1_04fj7"]
 [ext_resource type="Script" uid="uid://dqfub8djfy5kp" path="res://Scripts/UI/item_button_container.gd" id="1_vesvw"]
+[ext_resource type="Script" uid="uid://wobuvj4wj4nl" path="res://Scripts/Resources/page.gd" id="2_egj4c"]
+[ext_resource type="Script" uid="uid://f07fnkhdqir3" path="res://Scripts/Resources/dialogue.gd" id="3_7qimr"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_egj4c"]
-texture = ExtResource("1_04fj7")
-expand_margin_left = 28.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qimr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_04fj7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_egj4c"]
-
-[sub_resource type="Theme" id="Theme_iqal7"]
-Button/styles/focus = SubResource("StyleBoxTexture_egj4c")
-Button/styles/hover = SubResource("StyleBoxEmpty_7qimr")
-Button/styles/normal = SubResource("StyleBoxEmpty_04fj7")
-Button/styles/pressed = SubResource("StyleBoxEmpty_egj4c")
+[sub_resource type="Resource" id="Resource_iqal7"]
+resource_local_to_scene = true
+script = ExtResource("3_7qimr")
+pages = Array[ExtResource("2_egj4c")]([])
+options = Array[String](["Use", "Cancel"])
+metadata/_custom_type_script = "uid://f07fnkhdqir3"
 
 [node name="ItemButtonContainer" type="MarginContainer" node_paths=PackedStringArray("button")]
 size_flags_horizontal = 3
-theme = SubResource("Theme_iqal7")
 script = ExtResource("1_vesvw")
 button = NodePath("ItemButton")
+opening_dialogue = SubResource("Resource_iqal7")
 
 [node name="ItemButton" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 15)

@@ -1,5 +1,7 @@
 extends MarginContainer
 
+class_name ItemButton
+
 @export var button : Button
 @export var opening_dialogue : Dialogue
 @export var use_dialogue : Dialogue

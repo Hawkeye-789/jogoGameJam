@@ -43,7 +43,7 @@ func _display_next_char():
 
 	var page: Page = dialogue.pages[current_page_idx]
 	if char_idx < page.text.length():
-		text_label.text += page.text[char_idx]
+		text_label.text += page.text[char_idx].replace("\\n", "\n")
 		char_idx += 1
 
 		var char = page.text[char_idx - 1]
@@ -69,7 +69,7 @@ func _on_page_done():
 
 func _show_all_text():
 	var page: Page = dialogue.pages[current_page_idx]
-	text_label.text = page.text
+	text_label.text = page.text.replace("\\n", "\n")
 	displaying = false
 	interrupted = false
 	_on_page_done()
@@ -78,9 +78,10 @@ func _input(event):
 	if !active:
 		return
 	
+	var can_skip : bool = dialogue.options.is_empty() or current_page_idx != dialogue.pages.size() - 1
 	if displaying and event.is_action_pressed("interact"):
 		interrupted = true
-	elif not displaying and event.is_action_pressed("interact") and dialogue.options.is_empty():
+	elif not displaying and event.is_action_pressed("interact") and can_skip:
 		_next_page()
 
 func _next_page():

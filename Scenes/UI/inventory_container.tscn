@@ -1,0 +1,179 @@
+[gd_scene load_steps=23 format=3 uid="uid://bvjo6dasqqi8j"]
+
+[ext_resource type="Script" uid="uid://bm6p0fhjanys" path="res://Scripts/UI/inventory.gd" id="1_8ujbb"]
+[ext_resource type="PackedScene" uid="uid://c0mnpq881jgs4" path="res://Scenes/UI/item_button_container.tscn" id="1_fc0lg"]
+[ext_resource type="Script" uid="uid://wobuvj4wj4nl" path="res://Scripts/Resources/page.gd" id="2_8ujbb"]
+[ext_resource type="Script" uid="uid://f07fnkhdqir3" path="res://Scripts/Resources/dialogue.gd" id="3_wbnff"]
+
+[sub_resource type="Resource" id="Resource_14o23"]
+script = ExtResource("2_8ujbb")
+text = "Old headphones. Dusty and weary."
+letter_display_multiplier = 1.0
+metadata/_custom_type_script = "uid://wobuvj4wj4nl"
+
+[sub_resource type="Resource" id="Resource_8ujbb"]
+resource_local_to_scene = true
+script = ExtResource("3_wbnff")
+pages = Array[ExtResource("2_8ujbb")]([SubResource("Resource_14o23")])
+options = Array[String](["Use", "Cancel"])
+metadata/_custom_type_script = "uid://f07fnkhdqir3"
+
+[sub_resource type="Resource" id="Resource_yyv02"]
+script = ExtResource("2_8ujbb")
+text = "You equipped the headphones."
+letter_display_multiplier = 1.0
+metadata/_custom_type_script = "uid://wobuvj4wj4nl"
+
+[sub_resource type="Resource" id="Resource_t62he"]
+script = ExtResource("3_wbnff")
+pages = Array[ExtResource("2_8ujbb")]([SubResource("Resource_yyv02")])
+options = Array[String]([])
+metadata/_custom_type_script = "uid://f07fnkhdqir3"
+
+[sub_resource type="Resource" id="Resource_wbnff"]
+script = ExtResource("2_8ujbb")
+text = "A key to the cellar."
+letter_display_multiplier = 1.0
+metadata/_custom_type_script = "uid://wobuvj4wj4nl"
+
+[sub_resource type="Resource" id="Resource_wb3sb"]
+script = ExtResource("2_8ujbb")
+text = "... You don't feel like going back down there again."
+letter_display_multiplier = 1.0
+metadata/_custom_type_script = "uid://wobuvj4wj4nl"
+
+[sub_resource type="Resource" id="Resource_j5h1a"]
+resource_local_to_scene = true
+script = ExtResource("3_wbnff")
+pages = Array[ExtResource("2_8ujbb")]([SubResource("Resource_wbnff"), SubResource("Resource_wb3sb")])
+options = Array[String](["Use", "Cancel"])
+metadata/_custom_type_script = "uid://f07fnkhdqir3"
+
+[sub_resource type="Resource" id="Resource_pli4k"]
+script = ExtResource("2_8ujbb")
+text = "You can't use the key here."
+letter_display_multiplier = 1.0
+metadata/_custom_type_script = "uid://wobuvj4wj4nl"
+
+[sub_resource type="Resource" id="Resource_l613d"]
+script = ExtResource("3_wbnff")
+pages = Array[ExtResource("2_8ujbb")]([SubResource("Resource_pli4k")])
+options = Array[String]([])
+metadata/_custom_type_script = "uid://f07fnkhdqir3"
+
+[sub_resource type="Resource" id="Resource_jqdiv"]
+script = ExtResource("2_8ujbb")
+text = "A rose you found on the bathroom. It looks like it needs water"
+letter_display_multiplier = 1.0
+metadata/_custom_type_script = "uid://wobuvj4wj4nl"
+
+[sub_resource type="Resource" id="Resource_oqhjt"]
+resource_local_to_scene = true
+script = ExtResource("3_wbnff")
+pages = Array[ExtResource("2_8ujbb")]([SubResource("Resource_jqdiv")])
+options = Array[String](["Use", "Cancel"])
+metadata/_custom_type_script = "uid://f07fnkhdqir3"
+
+[sub_resource type="Resource" id="Resource_0xsft"]
+script = ExtResource("2_8ujbb")
+text = "You can't use this here"
+letter_display_multiplier = 1.0
+metadata/_custom_type_script = "uid://wobuvj4wj4nl"
+
+[sub_resource type="Resource" id="Resource_utw4d"]
+script = ExtResource("3_wbnff")
+pages = Array[ExtResource("2_8ujbb")]([SubResource("Resource_0xsft")])
+options = Array[String]([])
+metadata/_custom_type_script = "uid://f07fnkhdqir3"
+
+[sub_resource type="Resource" id="Resource_hcni7"]
+script = ExtResource("2_8ujbb")
+text = "An old note. I don't have time to write more"
+letter_display_multiplier = 1.0
+metadata/_custom_type_script = "uid://wobuvj4wj4nl"
+
+[sub_resource type="Resource" id="Resource_m1llw"]
+resource_local_to_scene = true
+script = ExtResource("3_wbnff")
+pages = Array[ExtResource("2_8ujbb")]([SubResource("Resource_hcni7")])
+options = Array[String](["Use", "Cancel"])
+metadata/_custom_type_script = "uid://f07fnkhdqir3"
+
+[sub_resource type="Resource" id="Resource_wqet8"]
+script = ExtResource("2_8ujbb")
+text = "The note reads as follows: "
+letter_display_multiplier = 1.0
+metadata/_custom_type_script = "uid://wobuvj4wj4nl"
+
+[sub_resource type="Resource" id="Resource_uvije"]
+script = ExtResource("2_8ujbb")
+text = "\"My dear. I feel my mental faculties dwindling. I will lock myself on the cellar before I hurt any of you.\\nI love you all.\\n\\nBye.\""
+letter_display_multiplier = 1.0
+metadata/_custom_type_script = "uid://wobuvj4wj4nl"
+
+[sub_resource type="Resource" id="Resource_o2ctu"]
+script = ExtResource("3_wbnff")
+pages = Array[ExtResource("2_8ujbb")]([SubResource("Resource_wqet8"), SubResource("Resource_uvije")])
+options = Array[String]([])
+metadata/_custom_type_script = "uid://f07fnkhdqir3"
+
+[node name="InventoryContainer" type="MarginContainer" node_paths=PackedStringArray("grid", "items")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_8ujbb")
+grid = NodePath("ScrollContainer/GridContainer")
+items = [NodePath("ScrollContainer/GridContainer/ItemButtonContainer"), NodePath("ScrollContainer/GridContainer/ItemButtonContainer2"), NodePath("ScrollContainer/GridContainer/ItemButtonContainer3"), NodePath("ScrollContainer/GridContainer/ItemButtonContainer4")]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="ItemButtonContainer" parent="ScrollContainer/GridContainer" instance=ExtResource("1_fc0lg")]
+visible = false
+layout_mode = 2
+opening_dialogue = SubResource("Resource_8ujbb")
+use_dialogue = SubResource("Resource_t62he")
+
+[node name="ItemButtonContainer2" parent="ScrollContainer/GridContainer" instance=ExtResource("1_fc0lg")]
+visible = false
+layout_mode = 2
+opening_dialogue = SubResource("Resource_j5h1a")
+use_dialogue = SubResource("Resource_l613d")
+
+[node name="ItemButton" parent="ScrollContainer/GridContainer/ItemButtonContainer2" index="0"]
+text = "Cellar Key"
+
+[node name="ItemButtonContainer3" parent="ScrollContainer/GridContainer" instance=ExtResource("1_fc0lg")]
+visible = false
+layout_mode = 2
+opening_dialogue = SubResource("Resource_oqhjt")
+use_dialogue = SubResource("Resource_utw4d")
+
+[node name="ItemButton" parent="ScrollContainer/GridContainer/ItemButtonContainer3" index="0"]
+text = "Wiltering Rose"
+
+[node name="ItemButtonContainer4" parent="ScrollContainer/GridContainer" instance=ExtResource("1_fc0lg")]
+visible = false
+layout_mode = 2
+opening_dialogue = SubResource("Resource_m1llw")
+use_dialogue = SubResource("Resource_o2ctu")
+
+[node name="ItemButton" parent="ScrollContainer/GridContainer/ItemButtonContainer4" index="0"]
+text = "Old note"
+
+[editable path="ScrollContainer/GridContainer/ItemButtonContainer"]
+[editable path="ScrollContainer/GridContainer/ItemButtonContainer2"]
+[editable path="ScrollContainer/GridContainer/ItemButtonContainer3"]
+[editable path="ScrollContainer/GridContainer/ItemButtonContainer4"]
