@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c26o4xhp476wm"]
+
+[ext_resource type="Texture2D" uid="uid://bc7esb8qfkn1j" path="res://Assets/flashlight_text.jpg" id="1_5ujgx"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("1_5ujgx")

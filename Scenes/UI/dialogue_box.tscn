@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bcsnbt1g3576d" path="res://Assets/UI/Dialog Box.aseprite" id="1_4wdl5"]
 [ext_resource type="FontFile" uid="uid://bh0flg4k5dv7o" path="res://Assets/Fonts/Pixelated Elegance.ttf" id="1_e22q5"]
-[ext_resource type="Script" uid="uid://dywx6bgluyrxv" path="res://Scripts/UI/dialog_box.gd" id="1_j168h"]
+[ext_resource type="Script" uid="uid://dywx6bgluyrxv" path="res://Scripts/UI/dialogue_box.gd" id="1_j168h"]
 [ext_resource type="Theme" uid="uid://dqad2s24s65bg" path="res://Themes/OptionButton.tres" id="4_r3ngk"]
 [ext_resource type="PackedScene" uid="uid://d255serx0p722" path="res://Scenes/UI/skip_arrow.tscn" id="5_8610a"]
 
-[node name="DialogueBox" type="Control" node_paths=PackedStringArray("display_timer", "safeguard_timer", "text_label", "options_buttons", "skip_arrow")]
+[node name="DialogueBox" type="Control" node_paths=PackedStringArray("text_label", "skip_arrow", "display_timer", "safeguard_timer", "buttons")]
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
 anchors_preset = 15
@@ -15,11 +15,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j168h")
+text_label = NodePath("Container/TextContainer/TextLabel")
+skip_arrow = NodePath("Container/TextContainer/Vbox/SkipArrowContainer/Skip Arrow")
 display_timer = NodePath("TypingDisplayTimer")
 safeguard_timer = NodePath("OptionSafeguardTimer")
-text_label = NodePath("Container/TextContainer/TextLabel")
-options_buttons = [NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton"), NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton2"), NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton3"), NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton4")]
-skip_arrow = NodePath("Container/TextContainer/Vbox/SkipArrowContainer/Skip Arrow")
+buttons = [NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton"), NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton2"), NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton3"), NodePath("Container/TextContainer/Vbox/MarginContainer/OptionsContainer/OptionButton4")]
 
 [node name="Container" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -68,7 +68,9 @@ theme_override_constants/margin_bottom = 5
 [node name="OptionsContainer" type="GridContainer" parent="Container/TextContainer/Vbox/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-columns = 3
+theme_override_constants/h_separation = 9
+theme_override_constants/v_separation = 9
+columns = 2
 
 [node name="OptionButton" type="Button" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
 visible = false
@@ -77,10 +79,6 @@ layout_mode = 2
 theme = ExtResource("4_r3ngk")
 alignment = 0
 
-[node name="HSeparator" type="Control" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
-custom_minimum_size = Vector2(5, 0)
-layout_mode = 2
-
 [node name="OptionButton2" type="Button" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
 visible = false
 custom_minimum_size = Vector2(220, 0)
@@ -88,28 +86,12 @@ layout_mode = 2
 theme = ExtResource("4_r3ngk")
 alignment = 0
 
-[node name="VSeparator" type="Control" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-
-[node name="VSeparator2" type="Control" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-
-[node name="VSeparator3" type="Control" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-
 [node name="OptionButton3" type="Button" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
 visible = false
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 theme = ExtResource("4_r3ngk")
 alignment = 0
-
-[node name="HSeparator2" type="Control" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
-custom_minimum_size = Vector2(5, 0)
-layout_mode = 2
 
 [node name="OptionButton4" type="Button" parent="Container/TextContainer/Vbox/MarginContainer/OptionsContainer"]
 visible = false
@@ -133,5 +115,5 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
-[connection signal="timeout" from="TypingDisplayTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TypingDisplayTimer" to="." method="_on_display_timer_timeout"]
 [connection signal="timeout" from="OptionSafeguardTimer" to="." method="_on_safeguard_timer_timeout"]

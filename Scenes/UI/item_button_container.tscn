@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0mnpq881jgs4"]
+
+[ext_resource type="Texture2D" uid="uid://drd3q0hfuiuy2" path="res://Assets/UI/ButtonFocus.aseprite" id="1_04fj7"]
+[ext_resource type="Script" uid="uid://dqfub8djfy5kp" path="res://Scripts/UI/item_button_container.gd" id="1_vesvw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_egj4c"]
+texture = ExtResource("1_04fj7")
+expand_margin_left = 28.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qimr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_04fj7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_egj4c"]
+
+[sub_resource type="Theme" id="Theme_iqal7"]
+Button/styles/focus = SubResource("StyleBoxTexture_egj4c")
+Button/styles/hover = SubResource("StyleBoxEmpty_7qimr")
+Button/styles/normal = SubResource("StyleBoxEmpty_04fj7")
+Button/styles/pressed = SubResource("StyleBoxEmpty_egj4c")
+
+[node name="ItemButtonContainer" type="MarginContainer" node_paths=PackedStringArray("button")]
+size_flags_horizontal = 3
+theme = SubResource("Theme_iqal7")
+script = ExtResource("1_vesvw")
+button = NodePath("ItemButton")
+
+[node name="ItemButton" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 15)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Headphones"
+alignment = 0
+
+[connection signal="pressed" from="ItemButton" to="." method="_on_item_button_pressed"]

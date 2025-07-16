@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bnuu6d3sqfh81"]
+
+[ext_resource type="FontFile" uid="uid://bh0flg4k5dv7o" path="res://Assets/Fonts/Pixelated Elegance.ttf" id="1_p7blt"]
+[ext_resource type="Texture2D" uid="uid://drd3q0hfuiuy2" path="res://Assets/UI/ButtonFocus.aseprite" id="2_jba0o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2pm4r"]
+texture = ExtResource("2_jba0o")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vt2xb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k17g5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2vd7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7o47"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2pm4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_06ymm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_egab1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ge275"]
+
+[resource]
+Button/font_sizes/font_size = 9
+Button/fonts/font = ExtResource("1_p7blt")
+Button/styles/focus = SubResource("StyleBoxTexture_2pm4r")
+Button/styles/hover = SubResource("StyleBoxEmpty_vt2xb")
+Button/styles/normal = SubResource("StyleBoxEmpty_k17g5")
+Button/styles/pressed = SubResource("StyleBoxEmpty_a2vd7")
+GridContainer/constants/h_separation = 6
+GridContainer/constants/v_separation = 8
+Label/font_sizes/font_size = 9
+Label/fonts/font = ExtResource("1_p7blt")
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_w7o47")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_2pm4r")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_06ymm")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_egab1")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_ge275")

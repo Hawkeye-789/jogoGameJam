@@ -1,11 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d255serx0p722"]
+[gd_scene load_steps=2 format=3 uid="uid://d255serx0p722"]
 
 [ext_resource type="PackedScene" uid="uid://di8bdxxm1dlau" path="res://Assets/UI/Skip Arrow.aseprite" id="1_1rqy6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ptntb"]
-resource_local_to_scene = true
-region = Rect2(-8, -7, 7, 6)
-filter_clip = true
-
 [node name="Skip Arrow" instance=ExtResource("1_1rqy6")]
-texture = SubResource("AtlasTexture_ptntb")
+offset = Vector2(1, 0)
+region_rect = Rect2(0, 0, 5, 4)
+
+[node name="AnimationPlayer" parent="." index="0"]
+autoplay = "Floating"

@@ -1,0 +1,181 @@
+[gd_scene load_steps=5 format=3 uid="uid://b06ysek4n478r"]
+
+[ext_resource type="Theme" uid="uid://bnuu6d3sqfh81" path="res://Themes/menu_theme.tres" id="1_w7o47"]
+[ext_resource type="Texture2D" uid="uid://vx47al7ub8ku" path="res://Assets/UI/MenuBackground.aseprite" id="1_yub6e"]
+[ext_resource type="Script" uid="uid://c7y1vxli25kbx" path="res://Scripts/tabs_container.gd" id="3_2pm4r"]
+[ext_resource type="PackedScene" uid="uid://c1g5ikb0wkl" path="res://Scenes/UI/inventory.tscn" id="4_2pm4r"]
+
+[node name="MenuScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_w7o47")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CharacterScreenContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(360, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TexturePanel" type="NinePatchRect" parent="MarginContainer/VBoxContainer/CharacterScreenContainer"]
+layout_mode = 2
+texture = ExtResource("1_yub6e")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer"]
+layout_mode = 2
+
+[node name="ImageContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="InfoContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="NameContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer/InfoContainer"]
+layout_mode = 2
+
+[node name="NameLable" type="Label" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer/InfoContainer/NameContainer"]
+layout_mode = 2
+text = "Name:"
+
+[node name="NameLable2" type="Label" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer/InfoContainer/NameContainer"]
+layout_mode = 2
+text = "Sileu"
+
+[node name="StatusContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer/InfoContainer"]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer/InfoContainer/StatusContainer"]
+layout_mode = 2
+text = "Status: "
+
+[node name="StatusLabel2" type="Label" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer/InfoContainer/StatusContainer"]
+layout_mode = 2
+text = "Sexually aroused"
+
+[node name="ObjectiveContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer/InfoContainer"]
+layout_mode = 2
+
+[node name="ObjectiveLabel" type="Label" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer/InfoContainer/ObjectiveContainer"]
+layout_mode = 2
+text = "Current Objective: "
+
+[node name="ObjectiveLabel2" type="Label" parent="MarginContainer/VBoxContainer/CharacterScreenContainer/TexturePanel/MarginContainer/HBoxContainer/InfoContainer/ObjectiveContainer"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Escape from Daniel"
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TabsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(170, 80)
+layout_mode = 2
+size_flags_vertical = 0
+script = ExtResource("3_2pm4r")
+
+[node name="TexturePanel" type="NinePatchRect" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer"]
+layout_mode = 2
+texture = ExtResource("1_yub6e")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="TabsVContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer"]
+layout_mode = 2
+
+[node name="InvButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
+layout_mode = 2
+text = "Inventory"
+alignment = 0
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
+layout_mode = 2
+text = "Settings"
+alignment = 0
+
+[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
+layout_mode = 2
+text = "Save"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
+layout_mode = 2
+text = "Quit"
+alignment = 0
+
+[node name="InventoryContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_2pm4r")]
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/InvButton" to="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer" method="_on_inv_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/SettingsButton" to="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/SaveButton" to="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer" method="_on_save_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/QuitButton" to="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer" method="_on_quit_button_pressed"]

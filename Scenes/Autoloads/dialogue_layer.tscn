@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc8ijh1m5cn83"]
+
+[ext_resource type="Script" uid="uid://dq0qat37l2aym" path="res://Scripts/Singletons/dialogue_layer.gd" id="1_e3c47"]
+[ext_resource type="PackedScene" uid="uid://dtlg5cygfwrkf" path="res://Scenes/UI/dialogue_box.tscn" id="1_wripa"]
+
+[node name="DialogueLayer" type="CanvasLayer"]
+script = ExtResource("1_e3c47")
+
+[node name="DialogueBox" parent="." instance=ExtResource("1_wripa")]
+visible = false
+
+[connection signal="option_selected" from="DialogueBox" to="." method="_on_dialogue_box_option_chosen"]

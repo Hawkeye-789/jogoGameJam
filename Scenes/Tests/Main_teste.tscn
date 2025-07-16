@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://wblfs1x1p810"]
+[gd_scene load_steps=11 format=3 uid="uid://wblfs1x1p810"]
 
 [ext_resource type="Script" uid="uid://louq0awsnhvw" path="res://Scripts/Tests/teste.gd" id="1_8c45s"]
 [ext_resource type="Script" uid="uid://wobuvj4wj4nl" path="res://Scripts/Resources/page.gd" id="2_8c45s"]
 [ext_resource type="Script" uid="uid://f07fnkhdqir3" path="res://Scripts/Resources/dialogue.gd" id="3_tsc1m"]
-[ext_resource type="PackedScene" uid="uid://dtlg5cygfwrkf" path="res://Scenes/UI/dialogue_box.tscn" id="4_ksq5x"]
 
 [sub_resource type="Resource" id="Resource_8c45s"]
 script = ExtResource("2_8c45s")
@@ -44,15 +43,10 @@ metadata/_custom_type_script = "uid://wobuvj4wj4nl"
 [sub_resource type="Resource" id="Resource_aewyv"]
 script = ExtResource("3_tsc1m")
 pages = Array[ExtResource("2_8c45s")]([SubResource("Resource_8c45s"), SubResource("Resource_tsc1m"), SubResource("Resource_ksq5x"), SubResource("Resource_0l05s"), SubResource("Resource_ocnu1"), SubResource("Resource_c2486")])
-options = Array[String](["Yes", "Absolutely!", "Sexo???"])
+options = Array[String](["Yes", "Absolutely!"])
 metadata/_custom_type_script = "uid://f07fnkhdqir3"
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("dialogue_box")]
 script = ExtResource("1_8c45s")
-dialogue_box = NodePath("CanvasLayer/DialogBox")
+dialogue_box = NodePath("")
 dialogo = SubResource("Resource_aewyv")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="DialogBox" parent="CanvasLayer" instance=ExtResource("4_ksq5x")]
