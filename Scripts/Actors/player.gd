@@ -24,3 +24,8 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	
+func _on_vision_enemy_entered(enemy: Node2D) -> void:
+	enemy.emit_signal("spotted_by_player")
+
+func _on_vision_enemy_exited(enemy: Node2D) -> void:
+	enemy.emit_signal("despotted_by_player")

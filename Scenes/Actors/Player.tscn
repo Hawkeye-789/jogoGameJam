@@ -25,8 +25,8 @@ position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_1p3rw")
 
 [node name="Player Vision" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 6
+collision_layer = 17
+collision_mask = 4
 
 [node name="Collision" type="CollisionShape2D" parent="Player Vision"]
 position = Vector2(-1, 413)
@@ -34,3 +34,6 @@ shape = SubResource("CircleShape2D_1p3rw")
 
 [node name="Collision2" type="CollisionPolygon2D" parent="Player Vision"]
 polygon = PackedVector2Array(0, 0, 159, 360, -159, 360)
+
+[connection signal="body_entered" from="Player Vision" to="." method="_on_vision_enemy_entered"]
+[connection signal="body_exited" from="Player Vision" to="." method="_on_vision_enemy_exited"]

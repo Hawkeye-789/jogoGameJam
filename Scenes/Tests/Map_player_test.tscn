@@ -11,4 +11,4 @@
 zoom = Vector2(0.2, 0.2)
 
 [node name="Jorjinho" parent="." instance=ExtResource("2_xd1ne")]
-position = Vector2(1246, -639)
+position = Vector2(1326, -625)
