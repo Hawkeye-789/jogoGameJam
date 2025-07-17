@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://6lu1g04ink4b"]
+[gd_scene load_steps=2 format=3 uid="uid://6lu1g04ink4b"]
 
 [ext_resource type="PackedScene" uid="uid://c1pd17mmfi3ht" path="res://Scenes/Actors/Player.tscn" id="1_nemdp"]
-[ext_resource type="PackedScene" uid="uid://dwopu48lvil3c" path="res://Scenes/Actors/Ghost.tscn" id="2_xd1ne"]
 
 [node name="Map_player_test" type="Node2D"]
 
@@ -9,6 +8,3 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.2, 0.2)
-
-[node name="Ghost" parent="." instance=ExtResource("2_xd1ne")]
-position = Vector2(1161, -453)
