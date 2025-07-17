@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1pd17mmfi3ht"]
+[gd_scene load_steps=5 format=3 uid="uid://c1pd17mmfi3ht"]
 
 [ext_resource type="Script" uid="uid://bsbwbqx4l4iwa" path="res://Scripts/Actors/player.gd" id="1_1p3rw"]
 [ext_resource type="Texture2D" uid="uid://7lbarfdhb4tg" path="res://icon.svg" id="1_jisj3"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1p3rw"]
 radius = 61.0
 height = 122.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1p3rw"]
+radius = 164.076
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 14
@@ -20,3 +23,17 @@ texture = ExtResource("1_jisj3")
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_1p3rw")
+
+[node name="Player Vision" type="Area2D" parent="."]
+collision_layer = 17
+collision_mask = 4
+
+[node name="Collision" type="CollisionShape2D" parent="Player Vision"]
+position = Vector2(-1, 413)
+shape = SubResource("CircleShape2D_1p3rw")
+
+[node name="Collision2" type="CollisionPolygon2D" parent="Player Vision"]
+polygon = PackedVector2Array(0, 0, 159, 360, -159, 360)
+
+[connection signal="body_entered" from="Player Vision" to="." method="_on_vision_enemy_entered"]
+[connection signal="body_exited" from="Player Vision" to="." method="_on_vision_enemy_exited"]
