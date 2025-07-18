@@ -1,7 +1,12 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bnuu6d3sqfh81"]
+[gd_resource type="Theme" load_steps=29 format=3 uid="uid://bnuu6d3sqfh81"]
 
 [ext_resource type="FontFile" uid="uid://bh0flg4k5dv7o" path="res://Assets/Fonts/Pixelated Elegance.ttf" id="1_p7blt"]
 [ext_resource type="Texture2D" uid="uid://drd3q0hfuiuy2" path="res://Assets/UI/ButtonFocus.aseprite" id="2_jba0o"]
+[ext_resource type="Texture2D" uid="uid://bg223ispiyko3" path="res://Assets/UI/dropdownArrow.aseprite" id="3_0v71m"]
+[ext_resource type="Texture2D" uid="uid://wf24bc5ngpvx" path="res://Assets/UI/checked.aseprite" id="4_6hyrn"]
+[ext_resource type="Texture2D" uid="uid://bjfs3cqndb35x" path="res://Assets/UI/checked_radio.aseprite" id="5_02o4q"]
+[ext_resource type="Texture2D" uid="uid://bio0itwta2g6n" path="res://Assets/UI/unchecked_radio.aseprite" id="6_kdtne"]
+[ext_resource type="Texture2D" uid="uid://cioygs2s1510n" path="res://Assets/UI/Unchecked.aseprite" id="7_o3xsu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2pm4r"]
 texture = ExtResource("2_jba0o")
@@ -11,6 +16,35 @@ texture = ExtResource("2_jba0o")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k17g5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2vd7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0v71m"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_m06r6"]
+color = Color(0.729412, 0.729412, 0.729412, 0.784314)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fm7i0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m06r6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h0eky"]
+texture = ExtResource("2_jba0o")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op6an"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6hyrn"]
+texture = ExtResource("2_jba0o")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02o4q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fm7i0"]
+texture = ExtResource("2_jba0o")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0v71m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m06r6"]
+texture = ExtResource("2_jba0o")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0eky"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7o47"]
 
@@ -33,6 +67,33 @@ GridContainer/constants/h_separation = 6
 GridContainer/constants/v_separation = 8
 Label/font_sizes/font_size = 9
 Label/fonts/font = ExtResource("1_p7blt")
+MenuButton/font_sizes/font_size = 9
+MenuButton/fonts/font = ExtResource("1_p7blt")
+OptionButton/font_sizes/font_size = 9
+OptionButton/fonts/font = ExtResource("1_p7blt")
+OptionButton/icons/arrow = ExtResource("3_0v71m")
+PopupMenu/font_sizes/font_size = 9
+PopupMenu/fonts/font = ExtResource("1_p7blt")
+PopupMenu/icons/checked = ExtResource("4_6hyrn")
+PopupMenu/icons/radio_checked = ExtResource("5_02o4q")
+PopupMenu/icons/radio_unchecked = ExtResource("6_kdtne")
+PopupMenu/icons/unchecked = ExtResource("7_o3xsu")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_0v71m")
+PopupMenu/styles/separator = SubResource("StyleBoxLine_m06r6")
+TabBar/constants/h_separation = 30
+TabBar/styles/button_highlight = SubResource("StyleBoxEmpty_fm7i0")
+TabBar/styles/button_pressed = SubResource("StyleBoxEmpty_m06r6")
+TabBar/styles/tab_focus = SubResource("StyleBoxTexture_h0eky")
+TabBar/styles/tab_hovered = SubResource("StyleBoxEmpty_op6an")
+TabBar/styles/tab_selected = SubResource("StyleBoxTexture_6hyrn")
+TabBar/styles/tab_unselected = SubResource("StyleBoxEmpty_02o4q")
+TabContainer/colors/font_hovered_color = Color(0.95, 0.95, 0.95, 1)
+TabContainer/font_sizes/font_size = 9
+TabContainer/fonts/font = ExtResource("1_p7blt")
+TabContainer/styles/tab_focus = SubResource("StyleBoxTexture_fm7i0")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxEmpty_0v71m")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_m06r6")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxEmpty_h0eky")
 VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_w7o47")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_2pm4r")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_06ymm")

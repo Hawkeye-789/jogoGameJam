@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b06ysek4n478r"]
+[gd_scene load_steps=7 format=3 uid="uid://b06ysek4n478r"]
 
 [ext_resource type="Theme" uid="uid://bnuu6d3sqfh81" path="res://Themes/MainMenu.tres" id="1_w7o47"]
 [ext_resource type="Texture2D" uid="uid://vx47al7ub8ku" path="res://Assets/UI/MenuBackground.aseprite" id="1_yub6e"]
 [ext_resource type="Script" uid="uid://c7y1vxli25kbx" path="res://Scripts/UI/tabs_container.gd" id="3_2pm4r"]
 [ext_resource type="PackedScene" uid="uid://bvjo6dasqqi8j" path="res://Scenes/UI/inventory_container.tscn" id="4_2pm4r"]
+[ext_resource type="PackedScene" uid="uid://cyfg1sluqqde" path="res://Scenes/UI/Audio_Options.tscn" id="5_06ymm"]
+[ext_resource type="PackedScene" uid="uid://w4qscxieiq2w" path="res://Scenes/UI/Video_Options.tscn" id="6_egab1"]
 
 [node name="MenuScreen" type="Control"]
 layout_mode = 3
@@ -123,13 +125,16 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TabsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LeftSideContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TabsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer"]
 custom_minimum_size = Vector2(170, 80)
 layout_mode = 2
 size_flags_vertical = 0
 script = ExtResource("3_2pm4r")
 
-[node name="TexturePanel" type="NinePatchRect" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer"]
+[node name="TexturePanel" type="NinePatchRect" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer"]
 layout_mode = 2
 texture = ExtResource("1_yub6e")
 patch_margin_left = 5
@@ -137,7 +142,7 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer/TexturePanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -149,28 +154,72 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 10
 
-[node name="TabsVContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer"]
+[node name="TabsVContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer/TexturePanel/MarginContainer"]
 layout_mode = 2
 
-[node name="InvButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
+[node name="InvButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
 layout_mode = 2
 text = "Inventory"
 alignment = 0
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
 layout_mode = 2
 text = "Settings"
 alignment = 0
 
-[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
+[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
 layout_mode = 2
 text = "Save"
 alignment = 0
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer"]
 layout_mode = 2
 text = "Quit"
 alignment = 0
+
+[node name="SettingsTabsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer"]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_top = -20
+theme_override_constants/margin_right = -5
+
+[node name="TexturePanel" type="NinePatchRect" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/SettingsTabsContainer"]
+layout_mode = 2
+texture = ExtResource("1_yub6e")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/SettingsTabsContainer/TexturePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/SettingsTabsContainer/TexturePanel/MarginContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="AudioButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/SettingsTabsContainer/TexturePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/SettingsTabsContainer/TexturePanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Video Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/SettingsTabsContainer/TexturePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Video"
 
 [node name="MainContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -185,21 +234,31 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 
 [node name="InventoryContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MainContainer/TexturePanel" instance=ExtResource("4_2pm4r")]
+visible = false
 layout_mode = 1
 
 [node name="SettingsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MainContainer/TexturePanel"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MainContainer/TexturePanel/SettingsContainer"]
+[node name="AudioMenu" parent="MarginContainer/VBoxContainer/HBoxContainer/MainContainer/TexturePanel/SettingsContainer" instance=ExtResource("5_06ymm")]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VideoMenu" parent="MarginContainer/VBoxContainer/HBoxContainer/MainContainer/TexturePanel/SettingsContainer" instance=ExtResource("6_egab1")]
 layout_mode = 2
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/InvButton" to="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer" method="_on_inv_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/SettingsButton" to="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/SaveButton" to="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer" method="_on_save_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/QuitButton" to="MarginContainer/VBoxContainer/HBoxContainer/TabsContainer" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/InvButton" to="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer" method="_on_inv_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/SettingsButton" to="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/SaveButton" to="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer" method="_on_save_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer/TexturePanel/MarginContainer/TabsVContainer/QuitButton" to="MarginContainer/VBoxContainer/HBoxContainer/LeftSideContainer/TabsContainer" method="_on_quit_button_pressed"]

@@ -1,0 +1,164 @@
+[gd_scene load_steps=10 format=3 uid="uid://cyfg1sluqqde"]
+
+[ext_resource type="Theme" uid="uid://bnuu6d3sqfh81" path="res://Themes/MainMenu.tres" id="1_ogvy8"]
+[ext_resource type="Script" uid="uid://cuqtqsiurunjd" path="res://Scripts/UI/Audio_options.gd" id="2_j1rd4"]
+[ext_resource type="Texture2D" uid="uid://hame6jvg13r" path="res://Assets/UI/Audio/MuteButton.aseprite" id="3_xpixj"]
+[ext_resource type="Texture2D" uid="uid://dxn1xx64mn6g4" path="res://Assets/UI/Audio/FullVolumeButton.aseprite" id="4_alvlx"]
+[ext_resource type="Texture2D" uid="uid://cnoib7xtoqfk0" path="res://Assets/UI/Audio/Minus.aseprite" id="5_2q1sr"]
+[ext_resource type="Texture2D" uid="uid://q211x4sx2y8o" path="res://Assets/UI/Audio/UnderTexture.aseprite" id="6_l45i1"]
+[ext_resource type="Texture2D" uid="uid://mgqcunqi4a82" path="res://Assets/UI/Audio/OverTexture.aseprite" id="7_3gh6g"]
+[ext_resource type="Texture2D" uid="uid://whsy61s0pper" path="res://Assets/UI/Audio/ProgressTexture.aseprite" id="8_m71xl"]
+[ext_resource type="Texture2D" uid="uid://ca6wr1cjv5s2q" path="res://Assets/UI/Audio/Plus.aseprite" id="9_ragjo"]
+
+[node name="AudioMenu" type="Control" node_paths=PackedStringArray("music_container", "sfx_container", "music_bar", "sfx_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ogvy8")
+script = ExtResource("2_j1rd4")
+music_container = NodePath("VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer/MusicButtonsContainer")
+sfx_container = NodePath("VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer/SFXButtonsContainer")
+music_bar = NodePath("VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer/MusicButtonsContainer/SliderContainer/VolumeSlider")
+sfx_bar = NodePath("VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer/SFXButtonsContainer/SliderContainer/VolumeSlider")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MusicVolumeContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MusicVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/MusicVolumeContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music:"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MusicVolumeContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 25
+
+[node name="MusicButtonsContainer" type="VBoxContainer" parent="VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SliderContainer" type="HBoxContainer" parent="VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer/MusicButtonsContainer"]
+layout_mode = 2
+
+[node name="MinusButton" type="Button" parent="VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer/MusicButtonsContainer/SliderContainer"]
+layout_mode = 2
+icon = ExtResource("5_2q1sr")
+
+[node name="VolumeSlider" type="TextureProgressBar" parent="VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer/MusicButtonsContainer/SliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+texture_under = ExtResource("6_l45i1")
+texture_over = ExtResource("7_3gh6g")
+texture_progress = ExtResource("8_m71xl")
+
+[node name="PlusButton" type="Button" parent="VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer/MusicButtonsContainer/SliderContainer"]
+layout_mode = 2
+icon = ExtResource("9_ragjo")
+
+[node name="BigBoysContainer" type="HBoxContainer" parent="VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer/MusicButtonsContainer"]
+layout_mode = 2
+
+[node name="MuteButton" type="Button" parent="VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer/MusicButtonsContainer/BigBoysContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource("3_xpixj")
+
+[node name="Separator" type="Control" parent="VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer/MusicButtonsContainer/BigBoysContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FullVolumeButton" type="Button" parent="VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer/MusicButtonsContainer/BigBoysContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("4_alvlx")
+
+[node name="Separator" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="SFXVolumeContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/SFXVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/SFXVolumeContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sound effects: "
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/SFXVolumeContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 25
+
+[node name="SFXButtonsContainer" type="VBoxContainer" parent="VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SliderContainer" type="HBoxContainer" parent="VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer/SFXButtonsContainer"]
+layout_mode = 2
+
+[node name="MinusButton" type="Button" parent="VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer/SFXButtonsContainer/SliderContainer"]
+layout_mode = 2
+icon = ExtResource("5_2q1sr")
+
+[node name="VolumeSlider" type="TextureProgressBar" parent="VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer/SFXButtonsContainer/SliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+texture_under = ExtResource("6_l45i1")
+texture_over = ExtResource("7_3gh6g")
+texture_progress = ExtResource("8_m71xl")
+
+[node name="PlusButton" type="Button" parent="VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer/SFXButtonsContainer/SliderContainer"]
+layout_mode = 2
+icon = ExtResource("9_ragjo")
+
+[node name="BigBoysContainer" type="HBoxContainer" parent="VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer/SFXButtonsContainer"]
+layout_mode = 2
+
+[node name="MuteButton" type="Button" parent="VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer/SFXButtonsContainer/BigBoysContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource("3_xpixj")
+
+[node name="Separator" type="Control" parent="VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer/SFXButtonsContainer/BigBoysContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FullVolumeButton" type="Button" parent="VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer/SFXButtonsContainer/BigBoysContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("4_alvlx")
+
+[connection signal="value_changed" from="VBoxContainer/MusicVolumeContainer/VBoxContainer/MarginContainer/MusicButtonsContainer/SliderContainer/VolumeSlider" to="." method="_on_music_bar_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFXVolumeContainer/VBoxContainer/MarginContainer/SFXButtonsContainer/SliderContainer/VolumeSlider" to="." method="_on_sfx_bar_value_changed"]
