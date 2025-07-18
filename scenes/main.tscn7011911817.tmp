@@ -1,0 +1,140 @@
+[gd_scene load_steps=2 format=3 uid="uid://b38brinefo7fa"]
+
+[ext_resource type="Script" uid="uid://dg2ioil52r0be" path="res://scripts/main.gd" id="1_o5qli"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5qli")
+
+[node name="general" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="bt_saveAll" type="Button" parent="general"]
+offset_left = 997.0
+offset_top = 103.0
+offset_right = 1064.0
+offset_bottom = 134.0
+text = "save All"
+
+[node name="bt_Load" type="Button" parent="general"]
+offset_left = 911.0
+offset_top = 104.0
+offset_right = 982.0
+offset_bottom = 135.0
+text = "Load"
+
+[node name="bt_ResetSave" type="Button" parent="general"]
+offset_left = 913.0
+offset_top = 146.0
+offset_right = 988.0
+offset_bottom = 177.0
+text = "Reset All"
+
+[node name="life" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Lb_life" type="Label" parent="life"]
+unique_name_in_owner = true
+offset_left = 93.0
+offset_top = 160.0
+offset_right = 238.0
+offset_bottom = 197.0
+text = "Vida: 100"
+
+[node name="bt_ADD_life" type="Button" parent="life"]
+offset_left = 618.0
+offset_top = 159.0
+offset_right = 666.0
+offset_bottom = 190.0
+text = "+ 10"
+
+[node name="bt_Sub_life" type="Button" parent="life"]
+offset_left = 681.0
+offset_top = 158.0
+offset_right = 729.0
+offset_bottom = 189.0
+text = "- 10"
+
+[node name="bt_saveLife" type="Button" parent="life"]
+offset_left = 749.0
+offset_top = 156.0
+offset_right = 820.0
+offset_bottom = 187.0
+text = "save life"
+
+[node name="item" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Lb_itens" type="Label" parent="item"]
+unique_name_in_owner = true
+offset_left = 91.0
+offset_top = 360.0
+offset_right = 381.0
+offset_bottom = 524.0
+text = "Itens:"
+autowrap_mode = 3
+
+[node name="bt_ADD_chave_principal" type="Button" parent="item"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="settings" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="volume" type="Control" parent="settings"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Lb_volume" type="Label" parent="settings/volume"]
+unique_name_in_owner = true
+offset_left = 93.0
+offset_top = 212.0
+offset_right = 238.0
+offset_bottom = 249.0
+text = "Volume:"
+
+[node name="sound_effect" type="Control" parent="settings"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Lb_sound_effect" type="Label" parent="settings/sound_effect"]
+unique_name_in_owner = true
+offset_left = 93.0
+offset_top = 212.0
+offset_right = 238.0
+offset_bottom = 249.0
+text = "Sound Effects:"
+
+[node name="window" type="Control" parent="settings"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Lb_window" type="Label" parent="settings/window"]
+unique_name_in_owner = true
+offset_left = 93.0
+offset_top = 212.0
+offset_right = 238.0
+offset_bottom = 249.0
+text = "FullScreen:"
+
+[connection signal="pressed" from="general/bt_ResetSave" to="." method="_on_bt_reset_save_pressed"]
+[connection signal="pressed" from="life/bt_ADD_life" to="." method="_on_bt_add_life_pressed"]
+[connection signal="pressed" from="life/bt_Sub_life" to="." method="_on_bt_sub_life_pressed"]
+[connection signal="pressed" from="life/bt_saveLife" to="." method="_on_bt_save_life_pressed"]

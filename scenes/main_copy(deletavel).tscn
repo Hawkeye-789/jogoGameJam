@@ -1,0 +1,218 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6rxkx2a7x8d5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otbso"]
+bg_color = Color(0.550781, 0.550781, 0.550781, 1)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Lb_life" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 93.0
+offset_top = 160.0
+offset_right = 238.0
+offset_bottom = 197.0
+text = "Vida: 100"
+
+[node name="Lb_saveSlot" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 709.0
+offset_top = 76.0
+offset_right = 781.0
+offset_bottom = 99.0
+
+[node name="Lb_coin" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 93.0
+offset_top = 212.0
+offset_right = 238.0
+offset_bottom = 249.0
+text = "Moedas:"
+
+[node name="Lb_weapons" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 92.0
+offset_top = 262.0
+offset_right = 237.0
+offset_bottom = 299.0
+text = "Armas:"
+
+[node name="Lb_skill" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 91.0
+offset_top = 312.0
+offset_right = 293.0
+offset_bottom = 349.0
+text = "Hablidade  de  pulo duplo:"
+
+[node name="Lb_itens" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 91.0
+offset_top = 360.0
+offset_right = 381.0
+offset_bottom = 524.0
+text = "Itens:"
+autowrap_mode = 3
+
+[node name="bt_saveAll" type="Button" parent="."]
+layout_mode = 0
+offset_left = 997.0
+offset_top = 103.0
+offset_right = 1064.0
+offset_bottom = 134.0
+text = "save All"
+
+[node name="bt_ResetSave" type="Button" parent="."]
+layout_mode = 0
+offset_left = 913.0
+offset_top = 146.0
+offset_right = 980.0
+offset_bottom = 177.0
+text = "Reset All"
+
+[node name="bt_saveLife" type="Button" parent="."]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 156.0
+offset_right = 820.0
+offset_bottom = 187.0
+text = "save life"
+
+[node name="bt_Load" type="Button" parent="."]
+layout_mode = 0
+offset_left = 911.0
+offset_top = 104.0
+offset_right = 982.0
+offset_bottom = 135.0
+text = "Load"
+
+[node name="bt_ADD_life" type="Button" parent="."]
+layout_mode = 0
+offset_left = 618.0
+offset_top = 159.0
+offset_right = 666.0
+offset_bottom = 190.0
+text = "+ 10"
+
+[node name="bt_Sub_life" type="Button" parent="."]
+layout_mode = 0
+offset_left = 681.0
+offset_top = 158.0
+offset_right = 729.0
+offset_bottom = 189.0
+text = "- 10"
+
+[node name="bt_ADD_Coin" type="Button" parent="."]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 209.0
+offset_right = 665.0
+offset_bottom = 240.0
+text = "+ 10"
+
+[node name="bt_Sub_Coin" type="Button" parent="."]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 208.0
+offset_right = 728.0
+offset_bottom = 239.0
+text = "- 10"
+
+[node name="bt_ADD_jump" type="Button" parent="."]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 311.0
+offset_right = 665.0
+offset_bottom = 342.0
+text = "True"
+
+[node name="bt_Sub_jump" type="Button" parent="."]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 310.0
+offset_right = 728.0
+offset_bottom = 341.0
+text = "false"
+
+[node name="bt_ADD_apple" type="Button" parent="."]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 356.0
+offset_right = 665.0
+offset_bottom = 387.0
+text = "Aple"
+
+[node name="bt_Sub_chicken" type="Button" parent="."]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 355.0
+offset_right = 728.0
+offset_bottom = 386.0
+text = "chicken"
+
+[node name="bt_shield" type="Button" parent="."]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 266.0
+offset_right = 672.0
+offset_bottom = 297.0
+text = "shield"
+
+[node name="bt_sword" type="Button" parent="."]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 265.0
+offset_right = 737.0
+offset_bottom = 296.0
+text = "Sword
+"
+
+[node name="bt_spear" type="Button" parent="."]
+layout_mode = 0
+offset_left = 748.0
+offset_top = 265.0
+offset_right = 800.0
+offset_bottom = 296.0
+text = "spear
+"
+
+[node name="slotButton" type="MenuButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 614.0
+offset_top = 74.0
+offset_right = 690.0
+offset_bottom = 97.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_otbso")
+text = "slots save"
+switch_on_hover = true
+item_count = 3
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+
+[connection signal="pressed" from="bt_saveAll" to="." method="_on_bt_save_all_pressed"]
+[connection signal="pressed" from="bt_ResetSave" to="." method="_on_bt_reset_save_pressed"]
+[connection signal="pressed" from="bt_saveLife" to="." method="_on_bt_save_life_pressed"]
+[connection signal="pressed" from="bt_Load" to="." method="_on_bt_load_pressed"]
+[connection signal="pressed" from="bt_ADD_life" to="." method="_on_bt_add_life_pressed"]
+[connection signal="pressed" from="bt_Sub_life" to="." method="_on_bt_sub_life_pressed"]
+[connection signal="pressed" from="bt_ADD_Coin" to="." method="_on_bt_add_coin_pressed"]
+[connection signal="pressed" from="bt_Sub_Coin" to="." method="_on_bt_sub_coin_pressed"]
+[connection signal="pressed" from="bt_ADD_jump" to="." method="_on_bt_add_jump_pressed"]
+[connection signal="pressed" from="bt_Sub_jump" to="." method="_on_bt_sub_jump_pressed"]
+[connection signal="pressed" from="bt_ADD_apple" to="." method="_on_bt_add_apple_pressed"]
+[connection signal="pressed" from="bt_Sub_chicken" to="." method="_on_bt_sub_chicken_pressed"]
+[connection signal="pressed" from="bt_shield" to="." method="_on_bt_shield_pressed"]
+[connection signal="pressed" from="bt_sword" to="." method="_on_bt_sword_pressed"]
+[connection signal="pressed" from="bt_spear" to="." method="_on_bt_spear_pressed"]
