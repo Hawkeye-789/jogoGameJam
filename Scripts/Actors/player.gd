@@ -8,7 +8,7 @@ extends CharacterBody2D
 var character_direction : Vector2
 var running : bool = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	character_direction.x = Input.get_axis("left", "right")
 	character_direction.y = Input.get_axis("up", "down")
 	character_direction = character_direction.normalized()
@@ -25,7 +25,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _on_vision_enemy_entered(enemy: Node2D) -> void:
-	enemy.emit_signal("spotted_by_player")
+	if enemy.has_method("_on_spotted_by_player"):
+		enemy._on_spotted_by_player()
+	#enemy.emit_signal("spotted_by_player")
 
 func _on_vision_enemy_exited(enemy: Node2D) -> void:
-	enemy.emit_signal("despotted_by_player")
+	if enemy.has_method("_on_despotted_by_player"):
+		enemy._on_despotted_by_player()
+	#enemy.emit_signal("despotted_by_player")

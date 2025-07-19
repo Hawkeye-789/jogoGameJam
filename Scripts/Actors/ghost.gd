@@ -9,7 +9,7 @@ var direction : Vector2
 var player_position : Vector2
 var player_is_nearby: bool = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	direction = player_position.normalized()
 	velocity = direction * movement_speed
 	
@@ -23,5 +23,5 @@ func _player_entered_sight_area(player: Node2D) -> void:
 	player_target = player
 	player_is_nearby = true
 
-func _player_exited_sight_area() -> void:
+func _player_exited_sight_area(_player: Node2D) -> void:
 	player_is_nearby = false
