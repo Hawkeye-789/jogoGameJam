@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var running_speed_boost : float
 
 @onready var player_vision: Area2D = $"Player Vision"
+@onready var player_sound: CollisionShape2D = $"Player Sound/Collision"
 
 var character_direction : Vector2
 var running : bool = false
@@ -21,6 +22,13 @@ func _physics_process(_delta: float) -> void:
 		player_vision.rotation = character_direction.angle() - PI / 2
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, movement_speed)
+
+	if velocity.length() == 0:
+		player_sound.scale = Vector2(1, 1)
+	elif velocity.length() >= movement_speed * running_speed_boost * 0.9:
+		player_sound.scale = Vector2(10, 10)
+	else:
+		player_sound.scale = Vector2(5, 5)
 		
 	move_and_slide()
 	

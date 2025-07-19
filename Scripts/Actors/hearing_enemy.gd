@@ -8,6 +8,7 @@ var player_target : CharacterBody2D
 var direction : Vector2
 var player_position : Vector2
 var player_is_nearby: bool = false
+var heard_player: bool = false
 
 func _physics_process(_delta: float) -> void:
 	direction = player_position.normalized()
@@ -19,6 +20,9 @@ func _physics_process(_delta: float) -> void:
 		if line_of_sight.get_collider() == player_target:
 			move_and_slide()
 
+func heard_player_now():
+	pass
+	
 func _player_entered_sight_area(player: Node2D) -> void:
 	player_target = player
 	player_is_nearby = true
