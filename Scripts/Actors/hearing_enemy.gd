@@ -21,7 +21,10 @@ func _physics_process(_delta: float) -> void:
 			move_and_slide()
 
 func heard_player_now():
-	pass
+	heard_player = true
+	
+func didn_hear_player():
+	heard_player = false
 	
 func _player_entered_sight_area(player: Node2D) -> void:
 	player_target = player
