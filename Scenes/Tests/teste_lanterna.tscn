@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://decul6nvjs7uu"]
+
+[ext_resource type="Texture2D" uid="uid://7lbarfdhb4tg" path="res://icon.svg" id="1_bdr7m"]
+[ext_resource type="PackedScene" uid="uid://c1pd17mmfi3ht" path="res://Scenes/Actors/Player.tscn" id="2_c861j"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6lu7p"]
+polygon = PackedVector2Array(16, 0, 16, 15, 29, 15, 29, 0)
+
+[node name="Teste_lanterna" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(314, 179)
+scale = Vector2(5.46479, 2.81132)
+texture = ExtResource("1_bdr7m")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(-44, 41)
+color = Color(0, 0, 0, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(197, 47)
+occluder = SubResource("OccluderPolygon2D_6lu7p")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(98, 45)
+occluder = SubResource("OccluderPolygon2D_6lu7p")
+
+[node name="Player" parent="." instance=ExtResource("2_c861j")]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://rstx78d7foy5"]
+
+[ext_resource type="Texture2D" uid="uid://06a2olonujpo" path="res://Assets/player_sight_texture.png" id="1_miijd"]
+
+[node name="PlayerSight" type="PointLight2D"]
+energy = 0.6
+shadow_enabled = true
+texture = ExtResource("1_miijd")

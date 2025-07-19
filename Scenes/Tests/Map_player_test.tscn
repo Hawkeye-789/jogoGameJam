@@ -5,6 +5,3 @@
 [node name="Map_player_test" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_nemdp")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.2, 0.2)

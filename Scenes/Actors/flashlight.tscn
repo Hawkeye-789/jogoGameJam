@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b70ix226yp4rh"]
+
+[ext_resource type="Texture2D" uid="uid://bc7esb8qfkn1j" path="res://Assets/flashlight_text.jpg" id="1_apk62"]
+
+[node name="Flashlight" type="PointLight2D"]
+scale = Vector2(0.8, 1)
+shadow_enabled = true
+shadow_filter_smooth = 3.0
+texture = ExtResource("1_apk62")
+offset = Vector2(0, 160)
+texture_scale = 3.0
