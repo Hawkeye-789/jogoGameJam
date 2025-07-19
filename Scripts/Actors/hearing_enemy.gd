@@ -17,12 +17,12 @@ func _physics_process(_delta: float) -> void:
 	if player_is_nearby:
 		player_position = player_target.global_position - global_position
 		line_of_sight.target_position = player_position
-		if line_of_sight.get_collider() == player_target:
+		if line_of_sight.get_collider() == player_target and heard_player:
 			move_and_slide()
 
 func heard_player_now():
 	heard_player = true
-	
+
 func didn_hear_player():
 	heard_player = false
 	

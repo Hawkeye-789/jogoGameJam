@@ -44,8 +44,8 @@ func _on_vision_enemy_exited(enemy: Node2D) -> void:
 
 func _on_sound_enemy_entered(enemy: Node2D) -> void:
 	if enemy.has_method("heard_player_now"):
-		enemy.heard_player_now
+		enemy.heard_player_now()
 
 func _on_sound_enemy_exited(enemy: Node2D) -> void:
 	if enemy.has_method("didn_hear_player"):
-		enemy.didn_hear_player
+		enemy.didn_hear_player()
