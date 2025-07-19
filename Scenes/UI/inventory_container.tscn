@@ -141,13 +141,11 @@ size_flags_vertical = 3
 columns = 2
 
 [node name="ItemButtonContainer" parent="ScrollContainer/GridContainer" instance=ExtResource("1_fc0lg")]
-visible = false
 layout_mode = 2
 opening_dialogue = SubResource("Resource_8ujbb")
 use_dialogue = SubResource("Resource_t62he")
 
 [node name="ItemButtonContainer2" parent="ScrollContainer/GridContainer" instance=ExtResource("1_fc0lg")]
-visible = false
 layout_mode = 2
 opening_dialogue = SubResource("Resource_j5h1a")
 use_dialogue = SubResource("Resource_l613d")
@@ -156,7 +154,6 @@ use_dialogue = SubResource("Resource_l613d")
 text = "Cellar Key"
 
 [node name="ItemButtonContainer3" parent="ScrollContainer/GridContainer" instance=ExtResource("1_fc0lg")]
-visible = false
 layout_mode = 2
 opening_dialogue = SubResource("Resource_oqhjt")
 use_dialogue = SubResource("Resource_utw4d")
@@ -165,7 +162,6 @@ use_dialogue = SubResource("Resource_utw4d")
 text = "Wiltering Rose"
 
 [node name="ItemButtonContainer4" parent="ScrollContainer/GridContainer" instance=ExtResource("1_fc0lg")]
-visible = false
 layout_mode = 2
 opening_dialogue = SubResource("Resource_m1llw")
 use_dialogue = SubResource("Resource_o2ctu")

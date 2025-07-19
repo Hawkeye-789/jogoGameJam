@@ -46,9 +46,9 @@ func _display_next_char():
 		text_label.text += page.text[char_idx].replace("\\n", "\n")
 		char_idx += 1
 
-		var char = page.text[char_idx - 1]
+		var character = page.text[char_idx - 1]
 		var delay : float
-		match char:
+		match character:
 			" ", "\n": 
 				delay = 0.02
 			".", ",", "!", "?": 

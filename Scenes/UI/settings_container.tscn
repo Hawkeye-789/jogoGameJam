@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxpdiidql8s1x"]
+
+[ext_resource type="Script" uid="uid://ek52v53t3j4j" path="res://Scripts/UI/settings_container.gd" id="1_w0sly"]
+[ext_resource type="PackedScene" uid="uid://w4qscxieiq2w" path="res://Scenes/UI/Video_Options.tscn" id="2_aadda"]
+[ext_resource type="PackedScene" uid="uid://cyfg1sluqqde" path="res://Scenes/UI/Audio_Options.tscn" id="3_vj6yt"]
+
+[node name="SettingsContainer" type="MarginContainer" node_paths=PackedStringArray("audio_button", "video_button", "audio_menu", "video_menu")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_w0sly")
+audio_button = NodePath("HBoxContainer/VBoxContainer/AudioButton")
+video_button = NodePath("HBoxContainer/VBoxContainer/Video Button")
+audio_menu = NodePath("HBoxContainer/MarginContainer/AudioMenu")
+video_menu = NodePath("HBoxContainer/MarginContainer/VideoMenu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="AudioButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Audio"
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Video Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Video"
+
+[node name="Control3" type="Control" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="VideoMenu" parent="HBoxContainer/MarginContainer" instance=ExtResource("2_aadda")]
+visible = false
+layout_mode = 2
+
+[node name="AudioMenu" parent="HBoxContainer/MarginContainer" instance=ExtResource("3_vj6yt")]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Video Button" to="." method="_on_video_button_pressed"]

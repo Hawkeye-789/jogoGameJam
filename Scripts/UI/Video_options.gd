@@ -5,6 +5,12 @@ var res2 : Vector2i = Vector2i(1440, 810)
 var res3 : Vector2i = Vector2i(1920, 1080)
 var resolution : Vector2i = res1
 
+@onready var button : Button = $MarginContainer/VBoxContainer/ModeContainer/OptionButton as Button
+
+func give_focus(neighbor : Control) -> void:
+	button.grab_focus()
+	button.focus_neighbor_left = neighbor.get_path()
+
 func _set_window_size() -> void:
 	get_window().set_size(resolution)
 	get_window().move_to_center()

@@ -46,7 +46,6 @@ pages = Array[ExtResource("2_8c45s")]([SubResource("Resource_8c45s"), SubResourc
 options = Array[String](["Yes", "Absolutely!"])
 metadata/_custom_type_script = "uid://f07fnkhdqir3"
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("dialogue_box")]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_8c45s")
-dialogue_box = NodePath("")
 dialogo = SubResource("Resource_aewyv")

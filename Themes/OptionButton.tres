@@ -1,7 +1,21 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dqad2s24s65bg"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dqad2s24s65bg"]
 
 [ext_resource type="FontFile" uid="uid://bh0flg4k5dv7o" path="res://Assets/Fonts/Pixelated Elegance.ttf" id="1_i2d33"]
+[ext_resource type="Texture2D" uid="uid://drd3q0hfuiuy2" path="res://Assets/UI/ButtonFocus.aseprite" id="2_l01r2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_30yte"]
+texture = ExtResource("2_l01r2")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1dl5c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6g1u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mtqbo"]
 
 [resource]
 Button/font_sizes/font_size = 9
 Button/fonts/font = ExtResource("1_i2d33")
+Button/styles/focus = SubResource("StyleBoxTexture_30yte")
+Button/styles/hover = SubResource("StyleBoxEmpty_1dl5c")
+Button/styles/normal = SubResource("StyleBoxEmpty_w6g1u")
+Button/styles/pressed = SubResource("StyleBoxEmpty_mtqbo")

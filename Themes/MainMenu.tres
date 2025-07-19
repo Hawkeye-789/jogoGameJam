@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=29 format=3 uid="uid://bnuu6d3sqfh81"]
+[gd_resource type="Theme" load_steps=30 format=3 uid="uid://bnuu6d3sqfh81"]
 
 [ext_resource type="FontFile" uid="uid://bh0flg4k5dv7o" path="res://Assets/Fonts/Pixelated Elegance.ttf" id="1_p7blt"]
 [ext_resource type="Texture2D" uid="uid://drd3q0hfuiuy2" path="res://Assets/UI/ButtonFocus.aseprite" id="2_jba0o"]
@@ -17,10 +17,14 @@ texture = ExtResource("2_jba0o")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2vd7"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_02o4q"]
+texture = ExtResource("2_jba0o")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0v71m"]
+bg_color = Color(0.258824, 0.219608, 0.266667, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_m06r6"]
-color = Color(0.729412, 0.729412, 0.729412, 0.784314)
+color = Color(0.121569, 0.0823529, 0.129412, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fm7i0"]
 
@@ -78,6 +82,7 @@ PopupMenu/icons/checked = ExtResource("4_6hyrn")
 PopupMenu/icons/radio_checked = ExtResource("5_02o4q")
 PopupMenu/icons/radio_unchecked = ExtResource("6_kdtne")
 PopupMenu/icons/unchecked = ExtResource("7_o3xsu")
+PopupMenu/styles/hover = SubResource("StyleBoxTexture_02o4q")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_0v71m")
 PopupMenu/styles/separator = SubResource("StyleBoxLine_m06r6")
 TabBar/constants/h_separation = 30

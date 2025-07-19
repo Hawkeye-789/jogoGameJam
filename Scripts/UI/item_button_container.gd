@@ -8,6 +8,12 @@ class_name ItemButton
 
 signal used
 
+func give_focus() -> void:
+	button.grab_focus()
+
+func give_focus_neighbor(neighbor : Control) -> void:
+	button.focus_neighbor_left = neighbor.get_path()
+
 func _on_item_button_pressed() -> void:
 	button.release_focus()
 	TheDialogueLayer.set_dialogue(opening_dialogue)
