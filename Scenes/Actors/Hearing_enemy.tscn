@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://uxst61fvloud"]
+
+[ext_resource type="Script" uid="uid://c0wh85qy32l1r" path="res://Scripts/Actors/hearing_enemy.gd" id="1_pojej"]
+[ext_resource type="Texture2D" uid="uid://7lbarfdhb4tg" path="res://icon.svg" id="2_jyu15"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78va2"]
+radius = 31.0161
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bkba"]
+
+[node name="Hearing Enemy" type="CharacterBody2D"]
+script = ExtResource("1_pojej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_jyu15")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_78va2")
+
+[node name="Line of Sight" type="RayCast2D" parent="."]
+target_position = Vector2(0, 31)
+
+[node name="Sight Area" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Collision" type="CollisionShape2D" parent="Sight Area"]
+scale = Vector2(100, 100)
+shape = SubResource("CircleShape2D_3bkba")
+debug_color = Color(0.92136, 0.129268, 0.611812, 0.42)
+
+[connection signal="body_entered" from="Sight Area" to="." method="_player_entered_sight_area"]
+[connection signal="body_exited" from="Sight Area" to="." method="_player_exited_sight_area"]
